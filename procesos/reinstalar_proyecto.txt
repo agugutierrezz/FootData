@@ -1,0 +1,29 @@
+DOCUMENTACIÓN - MOVER O REINSTALAR EL PROYECTO EN OTRA COMPUTADORA
+
+¿Qué necesito tener instalado?
+- Node.js y npm
+- PostgreSQL (versión 17)
+- Docker Desktop
+- pgAdmin 4 (opcional)
+- Git
+
+1. Clonar el repositorio
+git clone https://github.com/agugutierrezz/FootData.git
+
+
+2. Instalar dependencias
+npm install
+
+3. Verificar PostgreSQL
+- Instalar PostgreSQL
+- Crear una base de datos llamada footdata_db
+- Crear usuario postgres con contraseña (o modificar .env)
+
+4. Actualizar archivo .env según el host local
+DB_HOST=localhost  ← o IP si está en otro servidor
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD={contraseña}
+DB_NAME=footdata_db
+
+

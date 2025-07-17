@@ -1,0 +1,93 @@
+DOCUMENTACIÓN - INICIALIZACIÓN DEL PROYECTO FOOTDATA
+
+Requisitos instalados
+- Node.js
+- npm
+- Docker
+- PostgreSQL (versión 17)
+
+Estructura del Proyecto
+-FootData/
+ -backend/
+	- config/
+	- controllers/
+	- models/
+	- routes/
+	- .env
+	- app.js
+	- server.js
+	- package.json
+ -frontend/
+
+Inicialización del Backend
+- npm init -y
+- npm install express pg sequelize cors dotenv
+- npm install --save-dev nodemon
+- Editar package.json:
+"scripts": {
+  	"start": "node server.js",
+  	"dev": "nodemon server.js"
+}
+
+Variables de Entorno
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD={contraseña}
+DB_NAME=footdata_db
+
+Configuración de Sequelize
+
+- config/db.config
+require('dotenv').config();
+
+module.exports = {
+  HOST: process.env.DB_HOST,
+  USER: process.env.DB_USER,
+  PASSWORD: process.env.DB_PASSWORD,
+  DB: process.env.DB_NAME,
+  DIALECT: 'postgres',
+  PORT: process.env.DB_PORT
+};
+
+- models/index.js
+const { Sequelize } = require('sequelize');
+const dbConfig = require('../config/db.config');
+
+const sequelize = new Sequelize(
+  dbConfig.DB,
+  dbConfig.USER,
+  dbConfig.PASSWORD,
+  {
+    host: dbConfig.HOST,
+    dialect: dbConfig.DIALECT,
+    port: dbConfig.PORT,
+    logging: false
+  }
+);
+
+sequelize.authenticate()
+  .then(() => console.log('✅ Conexión a la base de datos exitosa.'))
+  .catch(err => console.error('❌ Error al conectar a la base de datos:', err));
+
+const db = {};
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+
+module.exports = db;
+
+- server.js
+
+const app = require('./app');
+const db = require('./models');
+
+const PORT = process.env.PORT || 3000;
+
+db.sequelize.sync({ alter: true })
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`🚀 Servidor escuchando en http://localhost:${PORT}`);
+    });
+  })
+  .catch(err => console.error('❌ Error al sincronizar la base de datos:', err));
+
