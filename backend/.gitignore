@@ -28,3 +28,6 @@ coverage/
 *.pid
 *.seed
 docker-compose.override.yml
+
+# Prueba de API's
+api.http
