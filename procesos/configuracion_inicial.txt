@@ -28,6 +28,9 @@ Inicialización del Backend
   	"start": "node server.js",
   	"dev": "nodemon server.js"
 }
+- npm install axios
+- npm install cloudinary
+
 
 Variables de Entorno
 DB_HOST=localhost
