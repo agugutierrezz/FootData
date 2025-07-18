@@ -49,3 +49,27 @@ exports.delete = async (req, res) => {
     res.status(500).json({ error: 'Error al eliminar jugador' });
   }
 };
+
+const Club = db.Club;
+
+exports.findMasCaros = async (req, res) => {
+  try {
+    const jugadores = await Jugador.findAll({
+      where: {
+        valor_mercado: {
+          [db.Sequelize.Op.not]: null
+        }
+      },
+      order: [['valor_mercado', 'DESC']],
+      limit: 10,
+      include: [{ model: db.Club, attributes: ['nombre', 'imagen_url'] }],
+    });
+
+    res.json(jugadores);
+  } catch (error) {
+    console.error('Error al obtener jugadores más caros:', error.message);
+    res.status(500).json({ error: 'Error al obtener jugadores más caros' });
+  }
+};
+
+

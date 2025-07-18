@@ -1,3 +1,4 @@
+const { where } = require('sequelize');
 const db = require('../models');
 const Competicion = db.Competicion;
 
@@ -49,5 +50,23 @@ exports.delete = async (req, res) => {
       : res.status(404).json({ error: 'No encontrada' });
   } catch (error) {
     res.status(500).json({ error: 'Error al eliminar' });
+  }
+};
+
+
+exports.findLigasDestacadas = async (req, res) => {
+  try {
+    const nombres = ["Premier League", "LaLiga", "Serie A", "Torneo Apertura", "Torneo Clausura"];
+    const competiciones = await Competicion.findAll({
+      where: {
+        nombre: {
+          [db.Sequelize.Op.in]: nombres
+        }
+      }
+    });
+    res.json(competiciones);
+  } catch (error) {
+    console.error('Error al obtener competiciones destacadas:', error.message);
+    res.status(500).json({ error: 'Error al obtener competiciones destacadas' });
   }
 };

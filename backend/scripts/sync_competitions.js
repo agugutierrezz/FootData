@@ -3,7 +3,6 @@ const axios = require('axios');
 const db = require('../models');
 const Competicion = db.Competicion;
 
-const esInternacional = ['UEFA', 'CONMEBOL', 'CONCACAF', 'CAF', 'AFC', 'OFC'];
 const terminos = ['Liga', 'Argentina', 'Libertadores', 'Champions', 'Sudamericana'];
 
 async function syncCompeticiones() {
@@ -13,7 +12,6 @@ async function syncCompeticiones() {
       const competiciones = res.data.results;
 
       for (const c of competiciones) {
-        const tipo = esInternacional.includes(c.continent?.toUpperCase()) ? 'INTERNACIONAL' : 'NACIONAL';
 
         const cloudinaryUrl = `https://res.cloudinary.com/dqfjxktou/image/upload/v1752802221/${c.id}.png`;
 
@@ -24,9 +22,7 @@ async function syncCompeticiones() {
             codigo: c.id,
             continente: c.continent,
             pais: c.country,
-            tipo: tipo,
-            imagen_url: cloudinaryUrl,
-            temporada: null
+            imagen_url: cloudinaryUrl
           }
         });
 

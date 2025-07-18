@@ -7,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     fundacion: { type: DataTypes.INTEGER },
     estadio: { type: DataTypes.STRING },
     liga: { type: DataTypes.STRING },
-    valor_plantel: { type: DataTypes.FLOAT }
+    valor_plantel: { type: DataTypes.FLOAT },
+    codigo: { type: DataTypes.STRING },
+    competicion_id: { type: DataTypes.INTEGER }
   }, {
     tableName: "clubes"
   });

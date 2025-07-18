@@ -61,3 +61,23 @@ exports.deleteClub = async (req, res) => {
     res.status(500).json({ error: 'Error al eliminar el club' });
   }
 };
+
+
+exports.findClubesDestacados = async (req, res) => {
+  try {
+    const nombres = [
+      "Real Madrid", "FC Barcelona", "Liverpool FC", "Manchester City", "Chelsea FC", "Arsenal FC", 
+      "Bayern Munich", "Paris Saint-Germain", "CA Boca Juniors", "CA River Plate", "Club Estudiantes de La Plata", "Club de Gimnasia y Esgrima La Plata"];
+    const clubes = await Club.findAll({
+      where: {
+        nombre: {
+          [db.Sequelize.Op.in]: nombres
+        }
+      }
+    });
+    res.json(clubes);
+  } catch (error) {
+    console.error('Error al obtener clubes destacados:', error.message);
+    res.status(500).json({ error: 'Error al obtener clubes destacados' });
+  }
+};
