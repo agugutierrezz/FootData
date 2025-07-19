@@ -60,30 +60,6 @@
   "tipo": "INTERNACIONAL"
  },
  {
-  "id": 69,
-  "nombre": "Liga Portugal",
-  "pais": "Portugal",
-  "temporada": null,
-  "createdAt": "2025-07-17 23:12:10.038-03",
-  "updatedAt": "2025-07-17 23:12:10.038-03",
-  "imagen_url": "https://res.cloudinary.com/dqfjxktou/image/upload/v1752802221/PO1.png",
-  "codigo": "PO1",
-  "continente": "UEFA",
-  "tipo": "INTERNACIONAL"
- },
- {
-  "id": 74,
-  "nombre": "Copa Argentina",
-  "pais": "Argentina",
-  "temporada": null,
-  "createdAt": "2025-07-17 23:12:10.895-03",
-  "updatedAt": "2025-07-17 23:12:10.895-03",
-  "imagen_url": "https://res.cloudinary.com/dqfjxktou/image/upload/v1752802221/ARCA.png",
-  "codigo": "ARCA",
-  "continente": "CONMEBOL",
-  "tipo": "INTERNACIONAL"
- },
- {
   "id": 75,
   "nombre": "Torneo Apertura",
   "pais": "Argentina",
@@ -104,18 +80,6 @@
   "updatedAt": "2025-07-17 23:12:10.904-03",
   "imagen_url": "https://res.cloudinary.com/dqfjxktou/image/upload/v1752802221/ARGC.png",
   "codigo": "ARGC",
-  "continente": "CONMEBOL",
-  "tipo": "INTERNACIONAL"
- },
- {
-  "id": 78,
-  "nombre": "Primera Nacional",
-  "pais": "Argentina",
-  "temporada": null,
-  "createdAt": "2025-07-17 23:12:10.911-03",
-  "updatedAt": "2025-07-17 23:12:10.911-03",
-  "imagen_url": "https://res.cloudinary.com/dqfjxktou/image/upload/v1752802221/ARG2.png",
-  "codigo": "ARG2",
   "continente": "CONMEBOL",
   "tipo": "INTERNACIONAL"
  },
@@ -141,30 +105,6 @@
   "imagen_url": "https://res.cloudinary.com/dqfjxktou/image/upload/v1752802221/CL.png",
   "codigo": "CL",
   "continente": "UEFA",
-  "tipo": "INTERNACIONAL"
- },
- {
-  "id": 88,
-  "nombre": "Copa Sudamericana",
-  "pais": "Chile",
-  "temporada": null,
-  "createdAt": "2025-07-17 23:12:12.745-03",
-  "updatedAt": "2025-07-17 23:12:12.745-03",
-  "imagen_url": "https://res.cloudinary.com/dqfjxktou/image/upload/v1752802221/CS.png",
-  "codigo": "CS",
-  "continente": "CONMEBOL",
-  "tipo": "INTERNACIONAL"
- },
- {
-  "id": 89,
-  "nombre": "Recopa Sudamericana",
-  "pais": "Chile",
-  "temporada": null,
-  "createdAt": "2025-07-17 23:12:12.752-03",
-  "updatedAt": "2025-07-17 23:12:12.752-03",
-  "imagen_url": "https://res.cloudinary.com/dqfjxktou/image/upload/v1752802221/RECO.png",
-  "codigo": "RECO",
-  "continente": "CONMEBOL",
   "tipo": "INTERNACIONAL"
  }
 ]

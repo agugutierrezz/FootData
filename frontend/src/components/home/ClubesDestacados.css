@@ -1,0 +1,40 @@
+.clubes-destacados-container {
+  padding: 20px;
+  text-align: left;
+}
+
+.clubes-destacados-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.clubes-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.club-card {
+  width: 140px;               
+  height: 160px;
+  background-color: #0a1a33cc;
+  padding: 0.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: white;               /* texto blanco */
+}
+
+.club-card:hover {
+  transform: scale(1.05);
+}
+
+.club-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}

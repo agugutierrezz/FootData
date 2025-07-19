@@ -1,0 +1,34 @@
+.categorias-container {
+  padding: 1rem;
+}
+
+.categorias-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.categoria-card {
+  width: 140px;               /* tamaño uniforme */
+  height: 160px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #0a1a33cc;
+  padding: 0.5rem;
+  border-radius: 12px;
+  transition: transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  color: white;              /* texto blanco */
+}
+
+.categoria-card:hover {
+  transform: scale(1.05);
+}
+
+.categoria-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}

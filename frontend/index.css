@@ -1,0 +1,10 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-image: url('/backgrounds/fondo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: #f2f2f2;
+}
