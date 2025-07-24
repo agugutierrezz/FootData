@@ -28,6 +28,22 @@ exports.findOne = async (req, res) => {
   }
 };
 
+exports.findByClub = async (req, res) => {
+  const { clubId } = req.params;
+
+  try {
+    const jugadores = await db.Jugador.findAll({
+      where: { club_id: clubId }
+    });
+
+    res.json(jugadores);
+  } catch (error) {
+    console.error('Error al obtener jugadores:', error);
+    res.status(500).json({ error: 'Error al obtener jugadores' });
+  }
+};
+
+
 exports.update = async (req, res) => {
   try {
     const [ok] = await Jugador.update(req.body, { where: { id: req.params.id } });

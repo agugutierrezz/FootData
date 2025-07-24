@@ -17,5 +17,14 @@ module.exports = (sequelize, DataTypes) => {
     tableName: "jugadores"
   });
 
+  Jugador.associate = models => {
+    Jugador.belongsToMany(models.Formacion, {
+      through: models.FormacionJugador,
+      foreignKey: 'jugador_id',
+      as: 'formaciones'
+    });
+  };
+
   return Jugador;
 };
+

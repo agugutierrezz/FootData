@@ -9,7 +9,7 @@ async function syncPerfilesClubes() {
 
     for (const club of clubes) {
       try {
-        const res = await axios.get(`https://transfermarkt-api.fly.dev/clubs/${club.codigo}/profile`);
+        const res = await axios.get(`http://localhost:8000/clubs/${club.codigo}/profile`);
         const p = res.data;
 
         await club.update({
@@ -20,16 +20,16 @@ async function syncPerfilesClubes() {
           pais: p.league?.countryName || null
         });
 
-        console.log(`Perfil actualizado: ${club.nombre}`);
+        console.log(`✅ Perfil actualizado: ${club.nombre}`);
       } catch (err) {
-        console.error(`Error al obtener perfil de ${club.nombre}: ${err.message}`);
+        console.error(`❌ Error al obtener perfil de ${club.nombre}: ${err.message}`);
       }
     }
 
-    console.log('Sincronización de perfiles completada.');
+    console.log('✅ Sincronización de perfiles completada.');
     process.exit(0);
   } catch (err) {
-    console.error('Error general:', err.message);
+    console.error('❌ Error general:', err.message);
     process.exit(1);
   }
 }

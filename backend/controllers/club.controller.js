@@ -81,3 +81,16 @@ exports.findClubesDestacados = async (req, res) => {
     res.status(500).json({ error: 'Error al obtener clubes destacados' });
   }
 };
+
+exports.getFormacionesByClub = async (req, res) => {
+  try {
+    const formaciones = await db.Formacion.findAll({
+      where: { club_id: req.params.id },
+      order: [['createdAt', 'ASC']]
+    });
+    res.json(formaciones);
+  } catch (error) {
+    console.error("Error al obtener formaciones del club", error);
+    res.status(500).json({ error: "Error al obtener formaciones del club" });
+  }
+};

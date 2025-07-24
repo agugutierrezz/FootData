@@ -1,18 +1,20 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+app.use('/images', express.static(path.join(__dirname, 'images')));
+
 app.use('/api/clubes', require('./routes/club.routes'));
 app.use('/api/competiciones', require('./routes/competicion.routes'));
-app.use('/api/fechas', require('./routes/fecha.routes'));
 app.use('/api/formaciones', require('./routes/formacion.routes'));
 app.use('/api/jugadores', require('./routes/jugador.routes'));
 app.use('/api/partidos', require('./routes/partido.routes'));
-
 
 app.get('/', (req, res) => {
   res.send('FootData API está funcionando');
