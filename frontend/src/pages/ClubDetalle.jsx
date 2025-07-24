@@ -1,23 +1,56 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import ClubInfo from "../components/club-detalle/ClubInfo";
+import FormacionVisual from "../components/club-detalle/FormacionVisual";
+import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
+import './ClubDetalle.css';
 
-const ClubDetalle = ({ club }) => {
-  if (!club) return <p className="text-center">Cargando club...</p>;
+const ClubDetalle = () => {
+  const { id: clubId } = useParams();
+  const [club, setClub] = useState(null);
+  const [formaciones, setFormaciones] = useState([]);
+  const [esquema, setEsquema] = useState("4-3-3");
+  const [jugadores, setJugadores] = useState([]);
+
+  useEffect(() => {
+    axios.get(`/api/clubes/${clubId}`).then(res => setClub(res.data));
+    axios.get(`/api/clubes/${clubId}/formaciones`).then(res => {
+      setFormaciones(res.data);
+      if (res.data.length > 0) {
+        const ultima = res.data[res.data.length - 1];
+        setEsquema(ultima.esquema);
+        axios.get(`/api/formaciones/${ultima.id}/jugadores`)
+          .then(res => {
+            const titulares = res.data.filter(j => j.FormacionJugador.es_titular);
+            setJugadores(titulares);
+          });
+      }
+    });
+  }, [clubId]);
+
+  const navigate = useNavigate();
+  const manejarCrearFormacion = () => {
+    navigate(`/club/${clubId}/crear-formacion`);
+  };
 
   return (
-    <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-6">
-      <h2 className="text-2xl font-bold mb-4 text-center">{club.nombre}</h2>
-      <img
-        src={club.imagen_url}
-        alt={club.nombre}
-        className="mx-auto w-40 h-40 object-contain mb-4"
-      />
-      <div className="grid grid-cols-2 gap-4 text-sm">
-        <div><strong>País:</strong> {club.pais || 'Desconocido'}</div>
-        <div><strong>Liga:</strong> {club.liga || 'N/A'}</div>
-        <div><strong>Estadio:</strong> {club.estadio || 'N/A'}</div>
-        <div><strong>Año de fundación:</strong> {club.fundacion || 'N/A'}</div>
-        <div><strong>Valor plantel:</strong> €{club.valor_plantel?.toLocaleString() || 'N/A'}</div>
-        <div><strong>Código:</strong> {club.codigo}</div>
+    <div className="club-detalle-container">
+      <button className="boton-home" onClick={() => navigate('/')}>
+        ← Volver
+      </button>
+      <div className="club-info-box">
+        <ClubInfo club={club} />
+      </div>
+      <div className="formacion-container">
+          <div className="formacion-header">
+          <button className="boton-crear" onClick={manejarCrearFormacion}>
+            + Crear Nueva Formación
+          </button>
+          <h2>{esquema}</h2>
+        </div>
+        <div className="formacion-box">
+          <FormacionVisual esquema={esquema} jugadores={jugadores} />
+        </div>
       </div>
     </div>
   );

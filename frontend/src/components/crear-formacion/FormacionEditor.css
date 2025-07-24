@@ -1,0 +1,52 @@
+.formacion-editor {
+  position: relative;
+  width: 75%;
+  max-width: 1000px;
+  aspect-ratio: 2 / 1;
+  background-color: transparent;
+}
+
+.field-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.player-slot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  text-align: center;
+}
+
+.jugador-en-campo-contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jugador-en-campo {
+  width: 80px;
+  height: 80px;
+  border-radius: 25%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.jugador-nombre {
+  font-size: 0.65rem;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  margin: 2px 0 0;
+  font-weight: bold;
+  line-height: 1.5 rem;
+}
+
+.slot-vacio {
+  width: 75%;
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px dashed #fff;
+  border-radius: 25%;
+}

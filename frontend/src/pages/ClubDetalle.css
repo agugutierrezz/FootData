@@ -1,0 +1,84 @@
+.club-detalle-container {
+  display: flex;
+  min-height: 100vh;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  gap: 40px;
+  position: relative;
+}
+
+.boton-home {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #0a1a33cc;
+  color: white;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.boton-home:hover {
+  background-color: black;
+}
+
+.club-info-box {
+  width: 300px;
+  color: white;
+  background: #0a1a33cc;
+  border: 2px solid black;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.formacion-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.formacion-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  justify-content: center;
+}
+
+.esquema-label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000,
+               -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.formacion-box {
+  width: 800px;
+  height: 600px;
+}
+
+.boton-crear {
+  background-color: #ffffff;
+  color: #000;
+  border: 2px solid #000;
+  padding: 10px 16px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.boton-crear:hover {
+  background-color: #000;
+  color: #fff;
+}
+

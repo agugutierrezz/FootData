@@ -1,0 +1,28 @@
+.jugador-card {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.jugador-card img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.jugador-card p {
+  font-size: 0.8rem;
+  color: white;
+  margin-top: 0.3rem;
+  font-weight: bold;
+  text-shadow:
+    -1px -1px 0 #000,
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+
