@@ -1,9 +1,10 @@
-h2 {
+.titulo-carrusel h2 {
   margin-bottom: 20px;
   font-size: 24px;
-  color: white; /* texto blanco */
+  color: white;
   padding-left: 16px;
 }
+
 
 .carrusel-swiper {
   width: 100%;

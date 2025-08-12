@@ -1,24 +1,8 @@
 .club-info {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   padding: 1rem;
-  height: 100%;
   color: white;
   text-align: center;
-  border-radius: 10px;
-}
-
-.datos {
-  font-size: 0.8rem;
-  color: white;
-  margin-top: 0.3rem;
-  font-weight: bold;
-  text-shadow:
-    -1px -1px 0 #000,
-     1px -1px 0 #000,
-    -1px  1px 0 #000,
-     1px  1px 0 #000;
 }
 
 .club-info img {
@@ -29,7 +13,7 @@
 }
 
 .club-info h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
@@ -37,7 +21,7 @@
 .club-info h3 {
   list-style: none;
   padding: 0;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   line-height: 1.5;
   text-align: left;
 }
@@ -45,7 +29,7 @@
 .club-info ul {
   list-style: none;
   padding: 0;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   line-height: 1.5;
   text-align: left;
 }

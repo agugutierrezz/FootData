@@ -8,7 +8,7 @@ function ClubesDestacados() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/clubes/clubes-destacados')
+    fetch('/api/clubes/clubes-destacados')
       .then(res => res.json())
       .then(data => {
         setClubes(data);

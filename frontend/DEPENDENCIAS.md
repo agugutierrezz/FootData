@@ -7,4 +7,7 @@ npm install swiper
 npm install html-to-image
 npm install react-toastify
 npm install @dnd-kit/core @dnd-kit/sortable @dnd-kit/modifiers
+npm install recharts
+npm install react-icons
+npm install sweetalert2
 

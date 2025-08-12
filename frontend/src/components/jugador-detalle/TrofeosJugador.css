@@ -1,0 +1,34 @@
+.trofeos-container {
+  background-color: #0a1a33cc;
+  padding: 20px;
+  border-radius: 16px;
+  color: white;
+}
+
+.trofeos-container h3 {
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+}
+
+.trofeos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: white;
+}
+
+.trofeo-card {
+  background-color: goldenrod;
+  color: #000000cc;
+  padding: 10px;
+  border-radius: 12px;
+  width: 150px;
+  text-align: center;
+}
+
+.trofeo-imagen {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}

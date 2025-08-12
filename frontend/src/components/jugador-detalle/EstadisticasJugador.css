@@ -1,0 +1,52 @@
+.estadisticas-jugador-container {
+  background-color: #0a1a33cc;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 30px auto;
+  color: white;
+  width: 100%;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+.estadisticas-jugador-container h1 {
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 22px;
+}
+
+.estadisticas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+}
+
+.estadisticas-grid div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: goldenrod;
+  color: black;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.icono {
+  font-size: 20px;
+}
+
+.icono-img {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #2c2c2c;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.icono-img img {
+  width: 24px;
+  height: 24px;
+}
+

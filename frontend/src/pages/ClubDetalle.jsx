@@ -1,31 +1,22 @@
 import React, { useState, useEffect } from "react";
 import ClubInfo from "../components/club-detalle/ClubInfo";
-import FormacionVisual from "../components/club-detalle/FormacionVisual";
-import axios from "axios";
+import ListadoJugadores from "../components/club-detalle/ListadoJugadores";
 import { useParams, useNavigate } from "react-router-dom";
 import './ClubDetalle.css';
+import BotonVolver from "../components/BotonVolver";
+import { FiPlus } from 'react-icons/fi';
+import api from '../services/api';
 
 const ClubDetalle = () => {
   const { id: clubId } = useParams();
   const [club, setClub] = useState(null);
-  const [formaciones, setFormaciones] = useState([]);
-  const [esquema, setEsquema] = useState("4-3-3");
   const [jugadores, setJugadores] = useState([]);
 
   useEffect(() => {
-    axios.get(`/api/clubes/${clubId}`).then(res => setClub(res.data));
-    axios.get(`/api/clubes/${clubId}/formaciones`).then(res => {
-      setFormaciones(res.data);
-      if (res.data.length > 0) {
-        const ultima = res.data[res.data.length - 1];
-        setEsquema(ultima.esquema);
-        axios.get(`/api/formaciones/${ultima.id}/jugadores`)
-          .then(res => {
-            const titulares = res.data.filter(j => j.FormacionJugador.es_titular);
-            setJugadores(titulares);
-          });
-      }
-    });
+    api.get(`/clubes/${clubId}`).then(res => setClub(res.data));
+    api.get(`/jugadores/por-club/${clubId}`)
+      .then(res => setJugadores(res.data))
+      .catch(err => console.error("Error al obtener jugadores del club", err));
   }, [clubId]);
 
   const navigate = useNavigate();
@@ -35,21 +26,21 @@ const ClubDetalle = () => {
 
   return (
     <div className="club-detalle-container">
-      <button className="boton-home" onClick={() => navigate('/')}>
-        ← Volver
-      </button>
+      <BotonVolver/>
       <div className="club-info-box">
         <ClubInfo club={club} />
       </div>
+
       <div className="formacion-container">
-          <div className="formacion-header">
+        <div className="formacion-header">
           <button className="boton-crear" onClick={manejarCrearFormacion}>
-            + Crear Nueva Formación
+            <FiPlus style={{ marginRight: 6 }} />
+            Crear Nueva Formación
           </button>
-          <h2>{esquema}</h2>
         </div>
-        <div className="formacion-box">
-          <FormacionVisual esquema={esquema} jugadores={jugadores} />
+
+        <div className="jugadores-box">
+          <ListadoJugadores jugadores={jugadores} />
         </div>
       </div>
     </div>

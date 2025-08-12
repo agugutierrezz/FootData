@@ -1,19 +1,18 @@
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
   background-color: #0a1a33cc;
   color: white;
   position: relative;
 }
 
 .header__logo {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
+  flex-shrink: 0;
+  margin-left: -1%;
 }
+
 
 .logo-img {
   height: 60px;
@@ -26,20 +25,22 @@
   width: 100%;
 }
 
-
-.search-input {
-  width: 100%;
-  padding: 0.6rem 1rem;
-  border-radius: 25px;
-  border: none;
-  background-color: #ffffff;
-  font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+.header__actions {
+  flex-shrink: 0;
+  margin-left: 5rem;
 }
 
-.search-input:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #1f63ff;
+.armatu11-btn {
+  background-color: black;
+  color: goldenrod;
+  border: whitesmoke;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.armatu11-btn:hover {
+  background-color: whitesmoke;
 }

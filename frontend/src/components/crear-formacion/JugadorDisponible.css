@@ -1,5 +1,5 @@
 .jugador-disponible {
-  width: 80px;
+  width: 90px;
   text-align: center;
   margin: 5px;
   cursor: grab;
@@ -8,15 +8,16 @@
 
 .jugador-disponible img {
   width: 100%;
-  border-radius: 50%;
-  border: 2px solid white;
+  border-radius: 25%;
+  border: 2px solid goldenrod;
   object-fit: cover;
+  background-color: #182432;
 }
 
 .jugador-disponible p {
   margin: 4px 0 0;
   font-weight: bold;
-  color: white;
+  color: goldenrod;
   text-shadow: 1px 1px 2px black;
   line-height: 1rem;
 }

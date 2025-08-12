@@ -8,8 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     estadio: { type: DataTypes.STRING },
     liga: { type: DataTypes.STRING },
     valor_plantel: { type: DataTypes.FLOAT },
-    codigo: { type: DataTypes.STRING },
-    competicion_id: { type: DataTypes.INTEGER }
+    codigo: { type: DataTypes.STRING }
   }, {
     tableName: "clubes"
   });

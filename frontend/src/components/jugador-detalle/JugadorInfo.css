@@ -1,0 +1,35 @@
+.jugador-info {
+  background-color: #0a1a33cc;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 20px;
+  color: white;
+}
+
+.jugador-imagen {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #ffffff44;
+}
+
+.jugador-datos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.jugador-datos h2 {
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+.jugador-datos p {
+  margin: 4px 0;
+  font-size: 1rem;
+}
+

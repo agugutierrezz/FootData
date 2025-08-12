@@ -1,0 +1,53 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: footdata-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 6039
+      POSTGRES_DB: footdata_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d footdata_db -h 127.0.0.1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    networks:
+      - footdata-net
+  backend:
+    image: agugutierrezz/footdata-backend:1.0.0
+    container_name: footdata-backend
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: 6039
+      DB_NAME: footdata_db
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    networks:
+      - footdata-net
+  frontend:
+    image: agugutierrezz/footdata-frontend:1.0.2
+    container_name: footdata-frontend
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - footdata-net
+
+volumes:
+  postgres_data:
+
+networks:
+  footdata-net:

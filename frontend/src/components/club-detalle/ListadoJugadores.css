@@ -1,0 +1,55 @@
+.listado-jugadores {
+  padding: 20px;
+  background-color: #0a1a33cc;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.listado-jugadores h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+thead {
+  background-color: #2b2d42;
+  color: white;
+}
+
+.tabla-jugadores th, td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  color: white;
+}
+
+.imagen-jugador {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.imagen-jugador:hover {
+  transform: scale(1.05);
+}
+
+.nombre-jugador {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.nombre-jugador:hover {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}

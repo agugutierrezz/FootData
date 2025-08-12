@@ -1,5 +1,8 @@
 const db = require('../models');
 const Jugador = db.Jugador;
+const Club = db.Club;
+const JugadorDatoExtra = db.JugadorDatoExtra;
+const axios = require('axios');
 
 exports.create = async (req, res) => {
   try {
@@ -43,6 +46,34 @@ exports.findByClub = async (req, res) => {
   }
 };
 
+exports.findPerfilExtendido = async (req, res) => {
+  const jugadorId = req.params.id;
+
+  try {
+    const jugador = await Jugador.findByPk(jugadorId, {
+      include: [{ model: Club, as: 'club' }]
+    });
+
+    if (!jugador) {
+      return res.status(404).json({ error: 'Jugador no encontrado' });
+    }
+    const estadisticasGuardadas = await JugadorDatoExtra.findOne({
+      where: { jugador_id: jugadorId, tipo: 'estadistica' }
+    });
+
+    const logrosGuardados = await JugadorDatoExtra.findOne({
+      where: { jugador_id: jugadorId, tipo: 'logros' }
+    });
+
+    const estadisticas = estadisticasGuardadas ? estadisticasGuardadas.datos : [];
+    const logros = logrosGuardados ? logrosGuardados.datos : [];
+
+    res.json({ jugador, estadisticas, logros });
+  } catch (err) {
+    console.error('Error en perfil extendido:', err.message);
+    res.status(500).json({ error: 'Error al obtener el perfil del jugador' });
+  }
+};
 
 exports.update = async (req, res) => {
   try {
@@ -66,8 +97,6 @@ exports.delete = async (req, res) => {
   }
 };
 
-const Club = db.Club;
-
 exports.findMasCaros = async (req, res) => {
   try {
     const jugadores = await Jugador.findAll({
@@ -78,7 +107,7 @@ exports.findMasCaros = async (req, res) => {
       },
       order: [['valor_mercado', 'DESC']],
       limit: 10,
-      include: [{ model: db.Club, attributes: ['nombre', 'imagen_url'] }],
+      include: [{ model: db.Club, as: 'club', attributes: ['nombre', 'imagen_url'] }],
     });
 
     res.json(jugadores);

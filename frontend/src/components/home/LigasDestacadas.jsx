@@ -7,7 +7,7 @@ function LigasDestacadas() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/competiciones/ligas-destacadas')
+    fetch('/api/competiciones/ligas-destacadas')
       .then(res => res.json())
       .then(data => {
         setLigas(data);

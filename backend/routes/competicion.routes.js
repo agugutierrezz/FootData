@@ -3,6 +3,7 @@ const controller = require('../controllers/competicion.controller');
 
 router.post('/', controller.create);
 router.get('/', controller.findAll);
+router.get('/:id/clubes', controller.findClubesByCompeticion);
 router.get('/ligas-destacadas', controller.findLigasDestacadas);
 router.get('/:id', controller.findOne);
 router.put('/:id', controller.update);

@@ -7,7 +7,7 @@ const ClubInfo = ({ club }) => {
     <div className="club-info">
       <h2>{club.nombre}</h2>
       <img
-        src={`http://localhost:3000/${club.imagen_url}`}
+        src={`/${club.imagen_url}`}
         alt="Escudo"
       />
       <div className='datos'>
@@ -17,7 +17,6 @@ const ClubInfo = ({ club }) => {
           <li><b>Fundado:</b> {club.fundacion}</li>
           <li><b>Estadio:</b> {club.estadio}</li>
           <li><b>Valor:</b> ${club.valor_plantel}</li>
-          <li><b>Técnico:</b> </li>
         </ul>
       </div>
     </div>

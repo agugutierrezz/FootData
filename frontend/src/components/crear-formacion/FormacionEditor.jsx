@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import getPosiciones from "../club-detalle/posicionesFormacion";
 import './FormacionEditor.css';
+import { FiCamera } from 'react-icons/fi';
 
-import {  DndContext,  useDraggable,  useDroppable } from '@dnd-kit/core';
 
-
-const FormacionEditor = ({ esquema, alineacion, setAlineacion, disponibles }) => {
+const FormacionEditor = ({ esquema, alineacion, setAlineacion, disponibles, handleGuardarImagen }) => {
   const [posiciones, setPosiciones] = useState([]);
 
   useEffect(() => {
@@ -44,6 +43,9 @@ const FormacionEditor = ({ esquema, alineacion, setAlineacion, disponibles }) =>
 
   return (
     <div className="formacion-editor">
+      <div className="boton-captura no-capture" onClick={handleGuardarImagen}>
+        <FiCamera/>
+      </div>
       {posiciones.map((pos, index) => (
         <div
           key={index}
@@ -56,12 +58,12 @@ const FormacionEditor = ({ esquema, alineacion, setAlineacion, disponibles }) =>
           {alineacion[index] ? (
             <div className="jugador-en-campo-contenedor">
               <img
-                src={`http://localhost:3000/${alineacion[index].imagen_url}`}
+                src={`/${alineacion[index].imagen_url}`}
                 alt={alineacion[index].nombre}
                 className="jugador-en-campo"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = 'http://localhost:3000/images/default.png';
+                  e.target.src = '/images/default.png';
                 }}
               />
               <span className="jugador-nombre">{alineacion[index].nombre}</span>

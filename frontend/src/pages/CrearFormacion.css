@@ -1,8 +1,8 @@
 .crear-formacion {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  padding: 1rem;
+  height: 125vh;
+  padding: 2rem;
   overflow: hidden;
 }
 
@@ -20,7 +20,7 @@
 
 .formacion-editor {
   background-image: url('/field.png');
-  background-size: 101% 101%;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -75,7 +75,8 @@
 }
 
 .guardar-wrapper {
-  text-align: left;
+  text-align: center;
+  width: 59%;
   padding: 0 1rem 1rem;
 }
 

@@ -1,0 +1,18 @@
+.boton-volver-icono {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 10;
+  transition: opacity 0.2s ease;
+}
+
+.boton-volver-icono:hover {
+  opacity: 0.7;
+}
+
+

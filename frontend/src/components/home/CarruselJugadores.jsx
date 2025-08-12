@@ -14,7 +14,7 @@ function CarruselJugadores() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/jugadores/mas-caros')
+    fetch('/api/jugadores/mas-caros')
       .then(res => res.json())
       .then(data => {
         setJugadores(data);
@@ -78,7 +78,7 @@ function CarruselJugadores() {
               <SwiperSlide key={jugador.id}>
                 <div
                   className="jugador-slide"
-                  onClick={() => navigate(`/jugadores/${jugador.id}`)}
+                  onClick={() => navigate(`/jugador/${jugador.id}/perfil`)}
                   style={{ cursor: 'pointer' }}
                 >
                   <img src={imageUrl} alt={jugador.nombre} className="jugador-fondo" />
